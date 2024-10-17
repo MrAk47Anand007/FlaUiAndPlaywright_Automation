@@ -28,8 +28,8 @@ class Program
         window.Focus(); // Bring the window into focus
         
         // Login to the desktop application
-        window.FindFirstDescendant(cf.ByAutomationId("textBox1")).AsTextBox().Text = "yourEmail"; // Input email for acme webportal
-        window.FindFirstDescendant(cf.ByAutomationId("textBox2")).AsTextBox().Text = "YourPassowrd"; // Input password for acme webportal
+        window.FindFirstDescendant(cf.ByAutomationId("textBox1")).AsTextBox().Text = "yourEmail"; // Input email for acme windows app
+        window.FindFirstDescendant(cf.ByAutomationId("textBox2")).AsTextBox().Text = "YourPassowrd"; // Input password for acme windows app
         window.FindFirstDescendant(cf.ByAutomationId("button1")).AsButton().Click(); // Click login button
         window.WaitUntilEnabled(TimeSpan.FromSeconds(60)); // Wait until login process is complete
         
@@ -52,8 +52,8 @@ class Program
         {
             // Navigate to the ACME test website and log in
             await page.GotoAsync("https://acme-test.uipath.com/login");
-            await page.GetByLabel("Email:").FillAsync("anand.kale@xalta.tech"); // Input email
-            await page.GetByLabel("Password:").FillAsync("AkAnand@2002"); // Input password
+            await page.GetByLabel("Email:").FillAsync("yourusername"); // Input email for acme web portal
+            await page.GetByLabel("Password:").FillAsync("yourpassword"); // Input password for acme web portal
             await page.GetByRole(AriaRole.Button, new() { Name = "Login" }).ClickAsync(); // Click login button
             await page.GetByRole(AriaRole.Button, new() { Name = "Work Items" }).ClickAsync(); // Navigate to "Work Items"
 

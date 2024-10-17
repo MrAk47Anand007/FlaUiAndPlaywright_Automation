@@ -21,15 +21,15 @@ class Program
     static async Task Main(string[] args)
     {
         // Launch the desktop application (ACME System3) using FlaUI
-        var app = Application.Launch("C:\\Users\\Admin\\OneDrive - Xalta Technology Services Pvt Ltd\\Desktop\\ACME-System3-v0.1\\ACME-System3.exe");
+        var app = Application.Launch("ApplicationPath/ACME-System3.exe");
         var automation = new UIA2Automation();
         var window = app.GetMainWindow(automation);
         ConditionFactory cf = new ConditionFactory(new UIA2PropertyLibrary());
         window.Focus(); // Bring the window into focus
         
         // Login to the desktop application
-        window.FindFirstDescendant(cf.ByAutomationId("textBox1")).AsTextBox().Text = "anand.kale@xalta.tech"; // Input email
-        window.FindFirstDescendant(cf.ByAutomationId("textBox2")).AsTextBox().Text = "AkAnand@2002"; // Input password
+        window.FindFirstDescendant(cf.ByAutomationId("textBox1")).AsTextBox().Text = "yourEmail"; // Input email for acme webportal
+        window.FindFirstDescendant(cf.ByAutomationId("textBox2")).AsTextBox().Text = "YourPassowrd"; // Input password for acme webportal
         window.FindFirstDescendant(cf.ByAutomationId("button1")).AsButton().Click(); // Click login button
         window.WaitUntilEnabled(TimeSpan.FromSeconds(60)); // Wait until login process is complete
         
